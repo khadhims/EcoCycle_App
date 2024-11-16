@@ -1,1 +1,34 @@
-/build
+# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Kotlin/Java dependencies
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+out/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Android-specific (jika proyek Kotlin Anda adalah aplikasi Android)
+*.apk
+*.aar
+captures/
+.externalNativeBuild/
+.cxx/
