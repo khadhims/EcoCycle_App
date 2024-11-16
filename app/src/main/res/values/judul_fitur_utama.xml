@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="NamaFitur1">Jemput Sampah</string>
+    <string name="NamaFitur2">Jual Sampah</string>
+    <string name="NamaFitur3">Tukarkan Poin</string>
+    <string name="NamaFitur4">Riwayat</string>
+    <string name="CardPrompt">Tukarkan Sampahmu Sekarang!</string>
+</resources>

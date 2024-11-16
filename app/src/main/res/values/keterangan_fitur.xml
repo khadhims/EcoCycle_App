@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="berat">Berat Sampah (kg)</string>
+    <string name="date">Tanggal Penjemputan</string>
+    <string name="jenis">Jenis Sampah</string>
+    <string name="saldo">Mau isi Saldo Berapa?</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="submit">Submit</string>
+    <string name="login">Username or Email</string>
+    <string name="password">Password</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+</resources>
