@@ -1,8 +1,9 @@
 package common.card
+
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,10 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,7 +34,9 @@ import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 @Composable
 fun MainFeatureCardsUi (
   @DrawableRes drawable: Int,
-  @StringRes text: Int,
+  @StringRes title: Int,
+  description: String,
+  destination: String,
   modifier: Modifier = Modifier
 ) {
   ElevatedCard(
@@ -72,12 +75,12 @@ fun MainFeatureCardsUi (
         verticalArrangement = Arrangement.spacedBy(10.dp)
       ){
         Text(
-          text = "Jual Sampah",
+          text = stringResource(id = title),
           fontSize = 16.sp,
           fontWeight = FontWeight.Bold
         )
         Text(
-          text = "Silahkan jual sampah anda dengan harga yang sesuai dengan kualitasnya",
+          text = description,
           fontSize = 12.sp,
         )
       }
@@ -90,8 +93,10 @@ fun MainFeatureCardsUi (
 fun MainFeaturesCardPreview() {
   EcoCycleAppTheme {
     MainFeatureCardsUi(
-      text = R.string.NamaFitur1,
-      drawable = R.drawable.trash,
+      title = R.string.NamaFitur2,
+      drawable = R.drawable.garbage,
+      description = "Menjual sampah anda dengan harga yang sesuai dengan kualitasnya",
+      destination = "jemputsampah",
       modifier = Modifier.padding(8.dp)
     )
   }

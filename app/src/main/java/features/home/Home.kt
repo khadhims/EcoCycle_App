@@ -26,18 +26,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.ecocycleapp.R
 import common.card.CardPrompt
 import common.cardScreen.CardScreenUi
 
 
 @Composable
-fun Home(modifier: Modifier = Modifier) {
+fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
   Scaffold { innerPadding ->
     Column(modifier = Modifier.padding(innerPadding).background(color = Color(0xFFF0F0F0))) {
       Box {
@@ -191,17 +194,14 @@ fun Home(modifier: Modifier = Modifier) {
           fontSize = 24.sp,
           fontWeight = FontWeight.Bold,
         )
-        CardScreenUi()
+        CardScreenUi(navHostController = navHostController)
       }
     }
   }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun HomePagePreview() {
-  Home()
+fun HomePreview() {
+  Home(navHostController = NavHostController(LocalContext.current))
 }
-
-
-

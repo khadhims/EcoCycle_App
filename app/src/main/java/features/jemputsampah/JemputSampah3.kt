@@ -23,10 +23,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 import common.button.ElevatedButtonExample
@@ -35,13 +37,13 @@ import common.textfield.BackMain
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun JemputSampah_3(modifier: Modifier = Modifier) {
+fun JemputSampah_3(navHostController: NavHostController, modifier: Modifier = Modifier) {
     Box(
         modifier
             .fillMaxSize()
             .background(color = Color(0xFF007843))
     ) {
-        BackMain()
+        BackMain(navHostController = navHostController)
 
         Box(
             modifier
@@ -99,7 +101,9 @@ fun JemputSampah_3(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .shadow(20.dp, shape = RoundedCornerShape(30.dp)),
                     text = R.string.submit,
-                    onClick = {}
+                    onClick = {
+                        navHostController.navigate("input_vca")
+                    }
                 )
             }
         }
@@ -108,8 +112,6 @@ fun JemputSampah_3(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun JemputSampah_3Preview() {
-    EcoCycleAppTheme {
-        JemputSampah_3()
-    }
+fun JemputSampah_3Preview() {
+    JemputSampah_3(navHostController = NavHostController(LocalContext.current))
 }

@@ -24,18 +24,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import common.button.ElevatedButtonExample
 import common.button.FilledButtonExample
 import common.textfield.AnotherTextField
 
 @Composable
-fun JemputSampah(modifier: Modifier = Modifier) {
+fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modifier) {
   Scaffold { contentPadding ->
     Box(
       modifier = modifier
@@ -138,6 +140,21 @@ fun JemputSampah(modifier: Modifier = Modifier) {
               )
               Spacer(modifier = Modifier.height(12.dp))
               Text(
+                text = "Alamat penjemputan",
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+              AnotherTextField(
+                modifier = Modifier
+                  .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
+                  .fillMaxWidth(),
+                R.string.address
+              )
+              Spacer(modifier = Modifier.height(12.dp))
+              Text(
                 text = "Catatan Tambahan (Opsional)",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -161,7 +178,7 @@ fun JemputSampah(modifier: Modifier = Modifier) {
               .fillMaxWidth()
               .shadow(20.dp, shape = RoundedCornerShape(30.dp)),
             text = R.string.submit,
-            onClick = {}
+            onClick = {navHostController.navigate("jemputsampah_3")}
           )
         }
       }
@@ -169,8 +186,8 @@ fun JemputSampah(modifier: Modifier = Modifier) {
   }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun JemputSampahPreview() {
-  JemputSampah()
+  JemputSampah(navHostController = NavHostController(LocalContext.current))
 }

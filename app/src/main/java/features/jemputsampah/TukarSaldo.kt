@@ -25,17 +25,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
-import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 import common.button.ElevatedButtonExample
 import common.textfield.BackMain
 
 @Composable
-fun TukarSaldo(modifier: Modifier = Modifier) {
+fun TukarSaldo(navHostController: NavHostController, modifier: Modifier = Modifier) {
     val username by remember { mutableStateOf(TextFieldValue("")) }
     val phoneNumber by remember { mutableStateOf(TextFieldValue("")) }
     val address by remember { mutableStateOf(TextFieldValue("")) }
@@ -46,7 +47,7 @@ fun TukarSaldo(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(color = Color(0xFF007843))
     ) {
-        BackMain()
+        BackMain(navHostController = navHostController)
 
         Box(
             modifier
@@ -136,11 +137,8 @@ fun TextFieldWithUnderline(
     )
 }
 
-
 @Preview
 @Composable
-private fun TukarSaldoPreview() {
-    EcoCycleAppTheme {
-        TukarSaldo()
-    }
+fun TukarSaldoPreview() {
+    TukarSaldo(navHostController = NavHostController(LocalContext.current))
 }

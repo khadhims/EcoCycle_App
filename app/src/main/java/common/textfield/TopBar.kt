@@ -1,5 +1,6 @@
 package common.textfield
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,13 +18,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 
 @Composable
-fun BackMain(modifier: Modifier = Modifier) {
-    Row( modifier = modifier.padding(start = 8.dp, top = 12.dp).fillMaxWidth(),
+fun BackMain(navHostController: NavHostController, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .padding(start = 8.dp, top = 12.dp)
+            .fillMaxWidth()
+            .clickable {
+                navHostController.popBackStack()
+            },
         verticalAlignment = Alignment.CenterVertically
-
         )
     {
     Icon(
@@ -39,13 +46,5 @@ fun BackMain(modifier: Modifier = Modifier) {
         fontWeight = FontWeight.SemiBold
     )
 
-    }
-}
-
-@Preview
-@Composable
-private fun BackPreview() {
-    EcoCycleAppTheme {
-        BackMain()
     }
 }

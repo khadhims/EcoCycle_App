@@ -24,18 +24,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import common.button.ElevatedButtonExample
 import common.button.SpinnerExample
 import common.textfield.AnotherTextField
 
 @Composable
-fun JemputSampah_Page2(modifier: Modifier = Modifier) {
+fun JualSampahPage(navHostController: NavHostController, modifier: Modifier = Modifier) {
   Scaffold { contentPadding ->
     Box(
       modifier = modifier
@@ -186,8 +188,8 @@ fun JemputSampah_Page2(modifier: Modifier = Modifier) {
   }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun JemputSampah_Page2Preview() {
-  JemputSampah_Page2()
+fun JualSampahPagePreview() {
+  JualSampahPage(navHostController = NavHostController(LocalContext.current))
 }
