@@ -1,6 +1,5 @@
 package features.home
 
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,26 +23,28 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.ecocycleapp.R
 import common.card.CardPrompt
 import common.cardScreen.CardScreenUi
+import viewModel.JualSampahViewModel
 import viewModel.logInViewModel
 
 
 @Composable
-fun Home(navHostController: NavHostController,logInViewModel: logInViewModel, modifier: Modifier = Modifier) {
+fun Home(jualSampahViewModel: JualSampahViewModel, navHostController: NavHostController, logInViewModel: logInViewModel, modifier: Modifier = Modifier) {
+  val fetchUserData by logInViewModel.fetchData.collectAsState()
+
   Scaffold { innerPadding ->
     Column(modifier = Modifier.padding(innerPadding).background(color = Color(0xFFF0F0F0))) {
       Box {
@@ -76,7 +77,7 @@ fun Home(navHostController: NavHostController,logInViewModel: logInViewModel, mo
                   )
                   Spacer(modifier = Modifier.height(10.dp))
                   Text(
-                    "Joko",
+                    text = "Joko",
                     color = Color.White,
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold
@@ -159,7 +160,8 @@ fun Home(navHostController: NavHostController,logInViewModel: logInViewModel, mo
           modifier = Modifier.size(40.dp).padding(6.dp)
         )
         Text(
-          "Rp 20.000",
+          text = jualSampahViewModel.convertWeightToRupiah(fetchUserData.totalWeightSelled),
+          color = Color(0XFF0A4635),
           fontWeight = FontWeight.Bold,
           fontSize = 14.sp
         )

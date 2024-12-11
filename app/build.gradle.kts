@@ -66,6 +66,7 @@ dependencies {
   implementation(libs.kotlin.coroutines)
   implementation(libs.kotlin.coroutines.android)
   implementation(libs.androidx.animation.core.lint)
+  implementation(libs.material)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)

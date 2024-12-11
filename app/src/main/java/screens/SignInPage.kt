@@ -1,6 +1,5 @@
-package features.auth
+package screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -24,7 +23,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -34,7 +32,6 @@ import androidx.navigation.NavHostController
 import com.example.clothloop.screens.TextFieldPasswordBox
 import com.example.clothloop.screens.textFieldBox
 
-import com.example.ecocycleapp.R
 import viewModel.signUpViewModel
 import viewModel.logInViewModel
 import kotlinx.coroutines.launch

@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.clothloop.screens.signUp
-import features.auth.logIn
+import screens.logIn
 import features.event.TukarSaldo
 import features.home.Home
 import features.jemputsampah.HistoryPage
@@ -16,6 +16,9 @@ import features.jemputsampah.InputVCA
 import features.jemputsampah.JemputSampah
 import features.jemputsampah.JemputSampah_3
 import features.jemputsampah.JualSampahPage
+import screens.History
+import screens.JualSampah
+import viewModel.JualSampahViewModel
 import viewModel.logInViewModel
 import viewModel.signUpViewModel
 
@@ -26,6 +29,7 @@ fun Navigation(){
   val context = LocalContext.current
   val logInViewModel: logInViewModel = viewModel(factory = LogInViewModelFactory(context))
   val signUpViewModel: signUpViewModel = viewModel()
+  val JualSampahViewModel: JualSampahViewModel = viewModel()
 
   NavHost(navController = navController, startDestination = "signin") {
     composable("signin") {
@@ -45,6 +49,20 @@ fun Navigation(){
     composable("home") {
       Home(
         navHostController = navController,
+        logInViewModel = logInViewModel,
+        jualSampahViewModel = JualSampahViewModel
+      )
+    }
+    composable("jualsampah") {
+      JualSampah(
+        navHostController = navController,
+        logInViewModel = logInViewModel
+      )
+    }
+
+    composable("historiPenjualan") {
+      History(
+        navController = navController,
         logInViewModel = logInViewModel
       )
     }
