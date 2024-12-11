@@ -1,5 +1,6 @@
 package features.jemputsampah
 
+import android.widget.Spinner
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,8 +33,11 @@ import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 import common.button.ElevatedButtonExample
+import common.button.SpinnerExample
 import common.button.SpinnerExample2
+import common.button.SpinnerExample3
 import common.textfield.BackMain
+import common.textfield.MyTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,14 +47,18 @@ fun JemputSampah_3(navHostController: NavHostController, modifier: Modifier = Mo
             .fillMaxSize()
             .background(color = Color(0xFF007843))
     ) {
-        BackMain(navHostController = navHostController)
+        BackMain(
+            navHostController = navHostController,
+            modifier.padding(top = 40.dp)
+            )
 
         Box(
             modifier
-                .padding(top = 60.dp, start = 10.dp, end = 10.dp)
+                .padding(top = 100.dp)
                 .fillMaxWidth()
+                .fillMaxHeight()
                 .height(400.dp)
-                .background(color = Color.White, shape = RoundedCornerShape(30.dp))
+                .background(color = Color.White, shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
         ) {
             Column {
                 Box(
@@ -63,7 +71,7 @@ fun JemputSampah_3(navHostController: NavHostController, modifier: Modifier = Mo
                         )
                 ) {
                     Row(modifier = modifier
-                        .padding(start = 8.dp, top = 12.dp)
+                        .padding(start = 20.dp, top = 12.dp)
                         .fillMaxWidth()
                         .fillMaxHeight(),
                         verticalAlignment = Alignment.CenterVertically) {
@@ -75,26 +83,13 @@ fun JemputSampah_3(navHostController: NavHostController, modifier: Modifier = Mo
                         Text(text = "Mohon Isi Data di bawah ini dengan benar", fontWeight = FontWeight.Bold)
                     }
                 }
-                Text(text = "Lama Berlangganan", fontSize = 15.sp , fontWeight = FontWeight.Bold , modifier = Modifier.padding(start = 10.dp , top = 20.dp))
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    label = { Text("") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 10.dp, end = 200.dp, top = 10.dp),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        cursorColor = Color.Black,
-                    ),
-                    singleLine = true
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text("Metode Pembayaran", fontSize = 15.sp , fontWeight = FontWeight.Bold, modifier = Modifier.padding(start = 10.dp, bottom = 20.dp))
-
+                Text(text = "Lama Berlangganan", fontSize = 15.sp , fontWeight = FontWeight.Bold , modifier = Modifier.padding(start = 36.dp , top = 20.dp))
+                Spacer(modifier = Modifier.height(20.dp))
+                SpinnerExample3()
+                Spacer(modifier = Modifier.height(20.dp))
+                Text("Metode Pembayaran", fontSize = 15.sp , fontWeight = FontWeight.Bold, modifier = Modifier.padding(start = 36.dp))
+                Spacer(modifier = Modifier.height(20.dp))
                 SpinnerExample2()
-
                 ElevatedButtonExample(
                     modifier = Modifier
                         .padding(start = 40.dp, end = 40.dp, top = 30.dp)

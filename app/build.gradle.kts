@@ -6,12 +6,12 @@ plugins {
 
 android {
   namespace = "com.example.ecocycleapp"
-  compileSdk = 34
+  compileSdk = 35
 
   defaultConfig {
     applicationId = "com.example.ecocycleapp"
     minSdk = 34
-    targetSdk = 34
+    targetSdk = 35
     versionCode = 1
     versionName = "1.0"
 
@@ -60,6 +60,12 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.espresso.core)
   implementation(libs.firebase.firestore)
+  implementation(libs.firebase.auth)
+  implementation(libs.play.services.auth)
+  implementation(libs.kotlin.stdlib)
+  implementation(libs.kotlin.coroutines)
+  implementation(libs.kotlin.coroutines.android)
+  implementation(libs.androidx.animation.core.lint)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
@@ -67,4 +73,5 @@ dependencies {
   androidTestImplementation(libs.androidx.ui.test.junit4)
   debugImplementation(libs.androidx.ui.tooling)
   debugImplementation(libs.androidx.ui.test.manifest)
+
 }

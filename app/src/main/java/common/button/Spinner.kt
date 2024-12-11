@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SpinnerExample() {
+fun SpinnerExample(modifier: Modifier = Modifier) {
   val parentOptions = listOf("Organik", "Non-organik", "Elektrik")
   var expandedState by remember { mutableStateOf(false) }
 

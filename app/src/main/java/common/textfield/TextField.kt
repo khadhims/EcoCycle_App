@@ -142,6 +142,5 @@ fun MyTextFieldPreview() {
           R.string.berat)
       }
     }
-
   )
 }

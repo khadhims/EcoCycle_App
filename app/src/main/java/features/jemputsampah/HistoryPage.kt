@@ -36,7 +36,7 @@ fun HistoryPage(navHostController: NavHostController, modifier: Modifier = Modif
       }
       Box(
         modifier = modifier
-          .padding(top = 80.dp)
+          .padding(top = 120.dp)
           .background(
             Color(0xFFF0F0F0),
             shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp)

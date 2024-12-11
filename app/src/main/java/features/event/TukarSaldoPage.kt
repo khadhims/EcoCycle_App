@@ -17,6 +17,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -30,6 +33,7 @@ import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import com.example.ecocycleapp.ui.theme.EcoCycleAppTheme
 import common.button.ElevatedButtonExample
+import common.textfield.AnotherTextField
 import common.textfield.BackMain
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,14 +44,17 @@ fun TukarSaldo(navHostController: NavHostController, modifier: Modifier = Modifi
             .fillMaxSize()
             .background(color = Color(0xFF007843))
     ) {
-        BackMain(navHostController = navHostController)
+        BackMain(
+            navHostController = navHostController,
+            modifier.padding(top = 40.dp)
+            )
 
         Box(
             modifier
-                .padding(top = 60.dp, bottom = 60.dp, start = 10.dp, end = 10.dp)
+                .padding(top = 110.dp)
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .background(color = Color.White, shape = RoundedCornerShape(30.dp))
+                .background(color = Color.White, shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
         ) {
             Column {
                 Row(
@@ -55,7 +62,7 @@ fun TukarSaldo(navHostController: NavHostController, modifier: Modifier = Modifi
                 ) {
                     Box(
                         modifier = Modifier
-                            .padding(25.dp)
+                            .padding(start = 40.dp, top = 30.dp)
                             .background(Color.LightGray, shape = RoundedCornerShape(12.dp))
                     ) {
                         Text(
@@ -68,65 +75,40 @@ fun TukarSaldo(navHostController: NavHostController, modifier: Modifier = Modifi
                     }
 
                 }
-                Spacer(modifier = Modifier.height(50.dp))
+                Spacer(modifier = Modifier.height(20.dp))
                 Text("Masukkan No Rek"
                     ,fontSize = 15.sp
                     ,fontWeight = FontWeight.Bold
-                    ,modifier = Modifier.padding(start = 10.dp))
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    modifier = Modifier
-                        .padding(start = 8.dp , end = 8.dp)
-                        .fillMaxWidth()
-                        .height(48.dp)
-                        .background(
-                            color = Color.LightGray, // warna background abu-abu
-                            shape = RoundedCornerShape(24.dp) // sudut melengkung
-                        ),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        focusedBorderColor = Color.Transparent, // border tidak terlihat saat fokus
-                        unfocusedBorderColor = Color.Transparent // border tidak terlihat saat tidak fokus
-                    ),
-                    shape = RoundedCornerShape(24.dp) // sudut melengkung yang sama
+                    ,modifier = Modifier.padding(start = 44.dp)
                 )
-                Spacer(modifier = Modifier.height(100.dp))
-
+                AnotherTextField(
+                    modifier = Modifier
+                        .padding(start = 44.dp, end = 44.dp, bottom = 8.dp)
+                    ,
+                    R.string.addnote
+                )
+                Spacer(modifier = Modifier.height(36.dp))
                 Text("Saldo yang ingin dicairkan"
                     ,fontSize = 15.sp
                     ,fontWeight = FontWeight.Bold
-                    ,modifier = Modifier.padding(start = 10.dp))
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    modifier = Modifier
-                        .padding(start = 8.dp , end = 8.dp)
-                        .fillMaxWidth()
-                        .height(48.dp)
-                        .background(
-                            color = Color.LightGray, // warna background abu-abu
-                            shape = RoundedCornerShape(24.dp) // sudut melengkung
-                        ),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        focusedBorderColor = Color.Transparent, // border tidak terlihat saat fokus
-                        unfocusedBorderColor = Color.Transparent // border tidak terlihat saat tidak fokus
-                    ),
-                    shape = RoundedCornerShape(24.dp) // sudut melengkung yang sama
+                    ,modifier = Modifier.padding(start = 44.dp)
                 )
-
+                AnotherTextField(
+                    modifier = Modifier
+                        .padding(start = 44.dp, end = 44.dp, bottom = 8.dp)
+                    ,
+                    R.string.addnote
+                )
+                Spacer(modifier = Modifier.height(380.dp))
                 ElevatedButtonExample(
                     modifier = Modifier
-                        .padding(start = 40.dp, end = 40.dp, top = 30.dp)
+                        .padding(start = 40.dp, end = 40.dp)
                         .fillMaxWidth()
                         .shadow(20.dp, shape = RoundedCornerShape(30.dp)),
                     text = R.string.submit,
-                    onClick = {}
+                    onClick = {
+                        navHostController.navigate("home")
+                    }
                 )
             }
         }

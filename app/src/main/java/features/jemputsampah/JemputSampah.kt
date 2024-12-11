@@ -35,6 +35,7 @@ import com.example.ecocycleapp.R
 import common.button.ElevatedButtonExample
 import common.button.FilledButtonExample
 import common.textfield.AnotherTextField
+import common.textfield.BackMain
 
 @Composable
 fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modifier) {
@@ -46,27 +47,11 @@ fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modi
         .fillMaxWidth()
         .fillMaxHeight()
       ) {
-      Row(
-        modifier = modifier.padding(start = 8.dp, top = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Start,
-      ) {
-        Icon(
-          imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-          contentDescription = null,
-          tint = Color.White,
-          modifier = Modifier.size(40.dp)
-        )
-        Text(
-          text = "Kembali",
-          color = Color.White,
-          fontSize = 20.sp,
-          fontWeight = FontWeight.SemiBold
-          )
+      BackMain(navHostController = navHostController)
       }
       Box(
         modifier = modifier
-          .padding(top = 60.dp)
+          .padding(top = 110.dp)
           .background(Color(0xFFF0F0F0), shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
           .fillMaxWidth()
           .fillMaxHeight()
@@ -184,7 +169,6 @@ fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modi
       }
     }
   }
-}
 
 @Preview
 @Composable

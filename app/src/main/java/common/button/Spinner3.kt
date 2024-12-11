@@ -31,8 +31,8 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SpinnerExample2(modifier: Modifier = Modifier) {
-    val parentOptions = listOf("BCA", "BNI", "BRI", "Mandiri")
+fun SpinnerExample3(modifier: Modifier = Modifier) {
+    val parentOptions = listOf("1 Bulan", "2 Bulan", "3 Bulan", "4 Bulan", "5 Bulan")
     var expandedState by remember { mutableStateOf(false) }
 
     var selectedOption by remember { mutableStateOf<String?>(null) }
@@ -43,7 +43,7 @@ fun SpinnerExample2(modifier: Modifier = Modifier) {
         onExpandedChange = { expandedState = !expandedState }
     ) {
         OutlinedTextField(
-            value = selectedOption ?: "Select a Bank", // Show placeholder if no option is selected
+            value = selectedOption ?: "Bulan", // Show placeholder if no option is selected
             onValueChange = {},
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedState) },
             readOnly = true,
@@ -92,7 +92,7 @@ fun SpinnerExample2(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun SpinnerExamplePreview2() {
+fun SpinnerExamplePreview3() {
     Column(
         modifier = Modifier
             .fillMaxSize(),

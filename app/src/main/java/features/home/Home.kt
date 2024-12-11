@@ -110,7 +110,7 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
     }
     Box (
       Modifier
-        .padding(PaddingValues(top = 190.dp, start = 60.dp, end = 60.dp ))
+        .padding(PaddingValues(top = 240.dp, start = 60.dp, end = 60.dp ))
         .background(color = Color.White, shape = RoundedCornerShape(30.dp))
         .height(150.dp).width(450.dp)
         .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(30.dp))
@@ -123,7 +123,7 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
     }
     Box(
       Modifier
-        .padding(PaddingValues(top = 360.dp, start = 60.dp, end = 220.dp ))
+        .padding(PaddingValues(top = 410.dp, start = 60.dp, end = 220.dp ))
         .background(color = Color.White, shape = RoundedCornerShape(40.dp))
         .height(45.dp)
         .width(400.dp)
@@ -150,7 +150,7 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
     }
     Box(
       Modifier
-        .padding(PaddingValues(top = 360.dp, start = 220.dp, end = 60.dp ))
+        .padding(PaddingValues(top = 410.dp, start = 220.dp, end = 60.dp ))
         .background(color = Color.White, shape = RoundedCornerShape(40.dp))
         .height(45.dp)
         .width(400.dp)
@@ -177,7 +177,7 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
     }
     Box(
       Modifier
-        .padding(PaddingValues(top = 420.dp, start = 20.dp, end = 20.dp))
+        .padding(PaddingValues(top = 500.dp, start = 20.dp, end = 20.dp))
         .background(color = Color.White)
         .height(400.dp)
         .fillMaxWidth(),
