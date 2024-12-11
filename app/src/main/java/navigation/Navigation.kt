@@ -42,7 +42,12 @@ fun Navigation(){
         signUpViewModel = signUpViewModel
       )
     }
-    composable("home") { Home(navHostController = navController) }
+    composable("home") {
+      Home(
+        navHostController = navController,
+        logInViewModel = logInViewModel
+      )
+    }
     composable("jemputsampah") { JemputSampah(navHostController = navController) }
     composable("jemputsampah_2") { JualSampahPage(navHostController = navController) }
     composable("historydeals") { HistoryPage(navHostController = navController) }

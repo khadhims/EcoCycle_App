@@ -15,6 +15,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -74,6 +75,25 @@ fun AnotherTextField(modifier: Modifier = Modifier, @StringRes text: Int) {
       unfocusedTextColor = Color.Gray
     ),
     modifier = modifier.fillMaxWidth()
+  )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun myOutlinedTextField() {
+  var textInput by remember { mutableStateOf("") }
+
+  OutlinedTextField(
+    value = textInput,
+    onValueChange = { newText -> textInput = newText },
+    placeholder = { Text(text = "892xxxxxxxxxx421") },
+    modifier = Modifier
+      .fillMaxWidth()
+      .padding(start = 20.dp, end = 20.dp, top = 10.dp),
+    colors = TextFieldDefaults.outlinedTextFieldColors(
+      cursorColor = Color.Black,
+    ),
+    singleLine = true
   )
 }
 

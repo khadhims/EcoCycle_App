@@ -4,6 +4,7 @@ import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -37,10 +39,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.ecocycleapp.R
 import common.card.CardPrompt
 import common.cardScreen.CardScreenUi
+import viewModel.logInViewModel
 
 
 @Composable
-fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
+fun Home(navHostController: NavHostController,logInViewModel: logInViewModel, modifier: Modifier = Modifier) {
   Scaffold { innerPadding ->
     Column(modifier = Modifier.padding(innerPadding).background(color = Color(0xFFF0F0F0))) {
       Box {
@@ -79,14 +82,28 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
                     fontWeight = FontWeight.Bold
                   )
                 }
-                Box(
-                  modifier = Modifier
-                    .size(60.dp)  // Menggunakan size() untuk kotak putih agar ukurannya seragam
-                    .background(
-                      color = Color.White,
-                      shape = RoundedCornerShape(30.dp)
-                    )
-                ) {}
+                Row(
+                  verticalAlignment = Alignment.CenterVertically,
+                  horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                  Box(
+                    modifier = Modifier
+                      .size(60.dp)  // Menggunakan size() untuk kotak putih agar ukurannya seragam
+                      .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(30.dp)
+                      )
+                  )
+                  Icon(
+                    modifier = Modifier
+                      .size(32.dp)
+                      .clickable {
+                        logInViewModel.logout()
+                        navHostController.navigate("signin")},
+                    imageVector = Icons.AutoMirrored.Filled.ExitToApp,
+                    contentDescription = null
+                  )
+                }
               }
               Spacer(modifier = Modifier.height(20.dp))
               Box (
@@ -198,10 +215,4 @@ fun Home(navHostController: NavHostController, modifier: Modifier = Modifier) {
       }
     }
   }
-}
-
-@Preview
-@Composable
-fun HomePreview() {
-  Home(navHostController = NavHostController(LocalContext.current))
 }

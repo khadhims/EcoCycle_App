@@ -40,8 +40,12 @@ fun TransactionScreen() {
         Spacer(modifier = Modifier.height(16.dp))
 
         val transactions = listOf(
-            Transaction("Joko", "10 Oktober 2024", "Sampah Logam", "2kg", "Rp 20.000", "Sukses"),
-            Transaction("Joko", "8 Oktober 2024", "Sampah Daur Ulang", "1kg", "Rp 10.000", "Sukses")
+            Transaction("Joko", "10 Oktober 2024", "Sampah Organik", "2kg", "Rp 20.000", "Sukses"),
+            Transaction("Khadhi", "12 November 2024", "Sampah Elektrik", "1kg", "Rp 10.000", "Sukses"),
+            Transaction("RIfqi", "31 Oktober 2024", "Sampah Anorganik", "1kg", "Rp 10.000", "Sukses"),
+            Transaction("Aboyy", "17 September 2024", "Sampah Logam", "1kg", "Rp 10.000", "Sukses"),
+            Transaction("BT0012", "25 Mei 2024", "Sampah Daur Ulang", "1kg", "Rp 10.000", "Sukses"),
+            Transaction("Ketude", "28 Agustus 2024", "Sampah Logam", "1kg", "Rp 10.000", "Sukses")
         )
 
         LazyColumn {

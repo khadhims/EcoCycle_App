@@ -32,6 +32,7 @@ import androidx.navigation.NavHostController
 import com.example.ecocycleapp.R
 import common.button.ElevatedButtonExample
 import common.textfield.BackMain
+import common.textfield.myOutlinedTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,14 +42,16 @@ fun InputVCA(navHostController: NavHostController, modifier: Modifier = Modifier
             .fillMaxSize()
             .background(color = Color(0xFF007843))
     ) {
-        BackMain(navHostController = navHostController)
+        BackMain(
+            modifier = Modifier.padding(top = 30.dp),
+            navHostController = navHostController)
 
         Box(
             modifier
-                .padding(top = 60.dp, start = 10.dp, end = 10.dp)
+                .padding(top = 86.dp)
                 .fillMaxWidth()
-                .height(350.dp)
-                .background(color = Color.White, shape = RoundedCornerShape(30.dp))
+                .fillMaxHeight()
+                .background(color = Color.White, shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
         ) {
             Column {
                 Box(
@@ -74,19 +77,7 @@ fun InputVCA(navHostController: NavHostController, modifier: Modifier = Modifier
                     }
                 }
                 Text(text = "Virtual Account", fontSize = 15.sp , fontWeight = FontWeight.Bold , modifier = Modifier.padding(start = 20.dp , top = 20.dp))
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    label = { Text("8293719264218421") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 20.dp, end = 20.dp, top = 10.dp),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        cursorColor = Color.Black,
-                    ),
-                    singleLine = true
-                )
-
+                myOutlinedTextField()
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(text = "Total Rp 50.000" , fontSize = 10.sp , modifier = Modifier.padding(start = 20.dp))
@@ -94,7 +85,7 @@ fun InputVCA(navHostController: NavHostController, modifier: Modifier = Modifier
 
                 ElevatedButtonExample(
                     modifier = Modifier
-                        .padding(start = 40.dp, end = 40.dp, top = 30.dp)
+                        .padding(start = 40.dp, end = 40.dp, top = 200.dp)
                         .fillMaxWidth()
                         .shadow(20.dp, shape = RoundedCornerShape(30.dp)),
                     text = R.string.submit,
