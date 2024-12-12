@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -67,7 +68,9 @@ fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modi
             )
           ) {
             Column(
-              modifier = Modifier.fillMaxWidth(),
+              modifier = Modifier
+                .fillMaxWidth()
+                .height(420.dp),
               horizontalAlignment = Alignment.CenterHorizontally
             ) {
               Box(
@@ -76,7 +79,7 @@ fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modi
                   .fillMaxWidth()
               ) {
                 Text(
-                  "Silahkan Diisi !",
+                  "Informasi Sampah !",
                   fontSize = 16.sp,
                   fontWeight = FontWeight.SemiBold,
                   fontFamily = FontFamily.Monospace,
@@ -88,76 +91,94 @@ fun JemputSampah(navHostController: NavHostController, modifier: Modifier = Modi
               }
               Spacer(modifier = Modifier.height(12.dp))
               Text(
-                text = "Berat Sampah (Kg)",
+                text = "1. Organik",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
                   .padding(horizontal = 16.dp)
                   .fillMaxWidth()
               )
-              AnotherTextField(
-                modifier = Modifier
-                  .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
-                  .fillMaxWidth(),
-                R.string.berat
-              )
-              Spacer(modifier = Modifier.height(12.dp))
+              Spacer(modifier = Modifier.height(5.dp))
               Text(
-                text = "Tanggal Penjemputan",
+                text = "Sampah organik adalah sampah yang berasal dari sisa-sisa makhluk hidup, baik hewan , tanaman maupun manusia",
                 fontSize = 12.sp,
-                fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
                   .padding(horizontal = 16.dp)
                   .fillMaxWidth()
               )
-              AnotherTextField(
-                modifier = Modifier
-                  .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
-                  .fillMaxWidth(),
-                R.string.date
-              )
-              Spacer(modifier = Modifier.height(12.dp))
+              Spacer(modifier = Modifier.height(5.dp))
               Text(
-                text = "Alamat penjemputan",
+                text = "2. Logam",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
                   .padding(horizontal = 16.dp)
                   .fillMaxWidth()
               )
-              AnotherTextField(
-                modifier = Modifier
-                  .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
-                  .fillMaxWidth(),
-                R.string.address
-              )
-              Spacer(modifier = Modifier.height(12.dp))
+              Spacer(modifier = Modifier.height(5.dp))
               Text(
-                text = "Catatan Tambahan (Opsional)",
+                text = "Limbah yang dimana keberadaannya dalam jumlah tertentu sangat dibutuhkan oleh organisme hidup, namun dalam jumlah yang berlebihan dapat menimbulkan efek racun",
+                fontSize = 12.sp,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "3. Elektrikus",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
                   .padding(horizontal = 16.dp)
                   .fillMaxWidth()
               )
-              AnotherTextField(
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "Limbah dari bekas peralatan elektronik yang mengandung bahan berbahaya dan beracun",
+                fontSize = 12.sp,
                 modifier = Modifier
-                  .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
-                  ,
-                R.string.addnote
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
               )
-              Spacer(modifier = Modifier.height(24.dp))
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "4. Plastik",
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "Semua barang bekas atau tidak terpakai yang materialnya diproduksi dari bahan kimia tak terbarukan",
+                fontSize = 12.sp,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "5. Kertas",
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+              Spacer(modifier = Modifier.height(5.dp))
+              Text(
+                text = "Jenis sampah anorganik yang terdiri dari kertas yang sudah tidak terpakai",
+                fontSize = 12.sp,
+                modifier = Modifier
+                  .padding(horizontal = 16.dp)
+                  .fillMaxWidth()
+              )
+
+
             }
           }
           Spacer(modifier = Modifier.weight(1f))
-          ElevatedButtonExample(
-            modifier = Modifier
-              .padding(start = 40.dp, end = 40.dp)
-              .fillMaxWidth()
-              .shadow(20.dp, shape = RoundedCornerShape(30.dp)),
-            text = R.string.submit,
-            onClick = {navHostController.navigate("jemputsampah_3")}
-          )
         }
       }
     }

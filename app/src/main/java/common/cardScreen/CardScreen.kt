@@ -32,8 +32,8 @@ fun CardScreenUi(navHostController: NavHostController, modifier: Modifier = Modi
     ),
     DrawebleStringPair (
       drawable = R.drawable.trash,
-      title = R.string.NamaFitur1,
-      description = "Menjual sampah anda dengan harga yang sesuai dengan kualitasnya",
+      title = R.string.NamaFitur5,
+      description = "Informasi kategori sampah",
       destination = "jemputsampah"
     ),
     DrawebleStringPair (
